@@ -1,0 +1,329 @@
+const validationArray = [
+  {
+    id: 0,
+    reg: "^([0-9]{4}|[0-9]{3})$",
+    ErrorMsg: "please enter Flight Number in valid format e.g 0300,321",
+  },
+  {
+    id: 1,
+    reg: "^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)[0-9]{2}$",
+    ErrorMsg: " please enter Date in valid format e.g dd.mm.yyyy",
+  },
+  {
+    id: 2,
+    reg: "^W*([A-Z]W*){3}$",
+    ErrorMsg: "please enter Station name in valid format e.g KHI , ISB",
+  },
+
+  {
+    id: 3,
+    reg: "^([0-9]{4})$",
+    ErrorMsg: "please enter  GMT in valid format e.g 1517,1327",
+  },
+  {
+    id: 4,
+    reg: "^W*([A-Z]W*){3}$",
+    ErrorMsg: "please enter  Station name in valid format e.g KHI , ISB",
+  },
+
+  {
+    id: 5,
+    reg: "^([0-9]{4})$",
+    ErrorMsg: "please enter  GMT in valid format e.g 1517,1327",
+  },
+  {
+    id: 6,
+    reg: "^W*([A-Z]W*){3}$",
+    ErrorMsg: "please enter A/c REG in valid format e.g BGY",
+  },
+  {
+    id: 7,
+    reg: "^[A-Z]{1}[A-Z0-9]{3}|^[0-9]{3}$",
+    ErrorMsg: "please enter A/C type in valid format e.g 320  ,   A320",
+  },
+  {
+    id: 8,
+    reg: "^W*([A-Z]W*){3,4}$",
+    ErrorMsg: "please enter Service in valid format e.g DNR,LNCH",
+  },
+  //Number of PAX
+  {
+    id: 9,
+    reg: "^([0-9]{1,2})$",
+    ErrorMsg: "please enter  B/C-E/Y+ in valid format e.g 7,0 ",
+  },
+  {
+    id: 10,
+    reg: "^([0-9]{1,3})$",
+    ErrorMsg: "please enter  E/Y in valid format e.g  200,144",
+  },
+
+  {
+    id: 11,
+    reg: "^([0-9]{1,3})$",
+    ErrorMsg: "please enter  INF in valid format e.g  3,4",
+  },
+  {
+    id: 12,
+    reg: "^([0-9]{1,3})$",
+    ErrorMsg: "please enter  POB in valid format e.g  200,125",
+  },
+  //A/C Configuration
+  {
+    id: 13,
+    reg: "^([0-9]{1,2})$",
+    ErrorMsg: "please enter  B/C-E/Y+ in valid format e.g 7,0 ",
+  },
+  {
+    id: 14,
+    reg: "^([0-9]{1,3})$",
+    ErrorMsg: "please enter  E/Y in valid format e.g  200,144",
+  },
+  // Capt.
+  {
+    id: 15,
+    reg: "^[A-Z]+(([',. -][A-Z ])?[A-Z])$",
+    ErrorMsg: "please enter  Name in valid format e.g  KASHIF KHAN,ADEL",
+  },
+  {
+    id: 16,
+    reg: "^[a-z0-9]{1,10}",
+    ErrorMsg: "please enter Delay time in  valid format e.g  15minutes,15h",
+  },
+  {
+    id: 17,
+    reg: "^[a-z0-9]{1,10}",
+    ErrorMsg: "please enter Sector in  valid  format e.g  KHI-ISB",
+  },
+  //crew detail
+  {
+    id: 18,
+    reg: "^[A-Z]{2}",
+    ErrorMsg: "please enter Designation in  valid  format e.g  SP,FP",
+  },
+  {
+    id: 19,
+    reg: "^[A-Z]+(([',. -][A-Z ])?[A-Z])$",
+    ErrorMsg: "please enter  Name in valid format e.g  KASHIF KHAN,ADEL",
+  },
+  {
+    id: 20,
+    reg: "^([0-9]{5})$",
+    ErrorMsg: "please enter  PNO in valid format e.g 48143,43200",
+  },
+  ,
+  {
+    id: 21,
+    reg: "^[a-z0-9]{2}",
+    ErrorMsg: "please enter  Postion in valid format e.g A1,B2",
+  },
+  {
+    id: 22,
+    reg: "^[a-z0-9]{2}",
+    ErrorMsg: "please enter  Door in valid format e.g L1,D2",
+  },
+  //check sheet
+  {
+    id: 23,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter check Sheet Value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1,2}[-][0-9]{1,2}|[0-9]{1,2})",
+        ErrorMsg:
+          "please enter check sheet Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 24,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter valuables value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg:
+          "please enter valuables Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 25,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter U.M value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg: "please enter U.M Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 25,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter Deportee value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg:
+          "please enter Deportee Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 26,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg:
+          "please enter In-Flt seat sale value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg:
+          "please enter In-Flt seat sale Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 27,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter Movies value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg: "please enter Movies  value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 28,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg: "please enter CML Filled value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg: "please enter CML Filled  value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 29,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^([0-9]{1,10})",
+        ErrorMsg: "please enter Book no. value in valid format e.g 00001595  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1}[-][0-9]{1}|[0-9]{1,2})",
+        ErrorMsg: "please enter Book no.  value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 30,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^([0-9]{1,2}[-][0-9]{1,2}|[0-9]{1,2})",
+        ErrorMsg: "please enter Item no. value in valid format e.g 25-28  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1,2}[-][0-9]{1,2}|[0-9]{1,2})",
+        ErrorMsg: "please enter Item no.  value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 31,
+    check_sheet: [
+      {
+        id: 1,
+        reg: "^[y]{1}|[n]{1}|[Y]{1}|[N]{1}",
+        ErrorMsg:
+          "please enter Infant/Ext Dist. Value in valid format e.g Y/N  ",
+      },
+
+      {
+        id: 2,
+        reg: "^([0-9]{1,2}[-][0-9]{1,2}|[0-9]{1,2})",
+        ErrorMsg:
+          "please enter Infant/Ext Dist. Sect  Value in valid format e.g 1, 1-2  ",
+      },
+    ],
+  },
+  {
+    id: 32,
+    reg: "^([A-Z0-9]{1,2}[+][A-Z0-9]{1,2}|[A-Z0-9]{1,2})",
+    ErrorMsg: " please enter Announcement in valid format e.g A3+A1,A1",
+  },
+  //keyPerformance
+  {
+    id: 33,
+    key_performance: [
+      {
+        id: 1,
+        reg: "^[1,2,3,4,5]{1}",
+        ErrorMsg: "please enter value in section is less then 6 e.g 1,2,3",
+      },
+      {
+        id: 2,
+        reg: "^[1,2,3,4,5]{1}",
+        ErrorMsg: "please enter value in section is less then 6 e.g 1,2,3",
+      },
+      {
+        id: 3,
+        reg: "^[1,2,3,4,5]{1}",
+        ErrorMsg: "please enter value in section is less then 6 e.g 1,2,3",
+      },
+      {
+        id: 4,
+        reg: "^[1,2,3,4,5]{1}",
+        ErrorMsg: "please enter value in section is less then 6 e.g 1,2,3",
+      },
+      {
+        id: 5,
+        reg: "^[A-Z,+]{1,20}",
+        ErrorMsg: "please enter Remarks e.g EY+ONLY,SCATTERD",
+      },
+    ],
+  },
+];
